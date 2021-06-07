@@ -31,11 +31,24 @@ const server = app.listen(port, listening);
     console.log(`On localhost: ${port}`);
   };
 
-//GET Route 
-app.get('/weatherdata', sendData);
+// Initialize all route with a callback function
+app.get('/all', sendData);
 
+// Callback function to complete GET '/all'
 function sendData (request, response) {
-  response.send(projectData);
-};
+    response.send(projectData);
+  };
 
-  //POST Route
+// Post Route
+app.post('/postroute', userInput );
+
+function userInput (req){
+    let newInput = req.body;
+    projectData = {
+        temp: newInput.temp,
+        date: newInput.date,
+        userResponse: newInput.userResponse
+    }
+    //for debugging
+console.log(projectData)
+};
