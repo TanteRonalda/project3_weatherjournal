@@ -23,7 +23,7 @@ app.use(express.static('website'));
 
 // Setup Server
 const port = 8080;
-/* Spin up the server*/
+
 const server = app.listen(port, listening);
  function listening(){
     // console.log(server);
@@ -31,18 +31,20 @@ const server = app.listen(port, listening);
     console.log(`On localhost: ${port}`);
   };
 
-// Initialize all route with a callback function
+//GET Route
 app.get('/all', sendData);
 
-// Callback function to complete GET '/all'
-function sendData (request, response) {
-    response.send(projectData);
-  };
+function sendData (req, res) {
+    res.send(projectData);
+};
 
 // Post Route
-app.post('/postroute', userInput );
+app.post('/postroute', userInput);
 
-function userInput (req){
+function userInput (req, res){
+    //delete later next two lines
+    res.send("Post route doing something");
+    console.log(req.body);
     let newInput = req.body;
     projectData = {
         temp: newInput.temp,
