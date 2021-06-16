@@ -9,7 +9,7 @@ document.getElementById('generate').addEventListener('click', doSomething);
 function doSomething(e) {
     const zip = document.getElementById('zip').value;
     const feelings = document.getElementById('feelings').value;
-    // given by Udacity, is this ready to use?
+    // given by Udacity
     let d = new Date();
     let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
@@ -25,7 +25,7 @@ function doSomething(e) {
       // calling PostData function to post weather data to POST route on server
       postData('/postroute', someWeather)
     })
-    //another .then to chain function that changes UI
+    //.then to chain function that changes UI
 };
 
 //Function to GET Web API Data
