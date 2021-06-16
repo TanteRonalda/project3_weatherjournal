@@ -42,15 +42,15 @@ function sendData (req, res) {
 app.post('/postroute', userInput);
 
 function userInput (req, res){
-    //delete later next two lines
-    res.send("Post route doing something");
-    console.log(req.body);
     let newInput = req.body;
-    projectData = {
+    //for debugging
+    console.log(newInput);
+    newProjectData = {
         temp: newInput.temp,
         date: newInput.date,
         userResponse: newInput.userResponse
     }
+    projectData.push(newProjectData)
     //for debugging
-console.log(projectData)
+    console.log(projectData)
 };
